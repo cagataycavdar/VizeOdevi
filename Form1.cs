@@ -25,13 +25,13 @@ namespace VizeOdevi
             XmlDocument deprem = new XmlDocument();
             deprem.Load(rss);
 
-            XmlDocument yedek = new XmlDocument();
-            yedek.Load("deprem.xml");
-            yedek.Save("yedek.xml");
+            //XmlDocument yedek = new XmlDocument();
+            //yedek.Load("deprem.xml");
+            //yedek.Save("yedek.xml");
 
             var nodes = deprem.SelectNodes("rss/channel/item");
 
-            var nodes2 = yedek.SelectNodes("rss/channel/item");
+            //var nodes2 = yedek.SelectNodes("rss/channel/item");
 
             listBox1.Items.Clear();
 
@@ -42,15 +42,15 @@ namespace VizeOdevi
 
                 listBox1.Items.Add(title + "  ---  " + date);
 
-                foreach (XmlNode node2 in nodes2)
-                {
-                    string title2 = node2["title"].InnerText;
+                //foreach (XmlNode node2 in nodes2)
+                //{
+                //    string title2 = node2["title"].InnerText;
 
-                    if (node2["title"].InnerText != node["title"].InnerText)
-                    {
-                        MessageBox.Show("Deprem listesi güncelleniyor...");
-                    }
-                }
+                //    if (node2["title"].InnerText != node["title"].InnerText)
+                //    {
+                //        MessageBox.Show("Deprem listesi güncelleniyor...");
+                //    }
+                //}
             }
 
             deprem.Save("deprem.xml");
