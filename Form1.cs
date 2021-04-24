@@ -27,6 +27,8 @@ namespace VizeOdevi
 
             var nodes = deprem.SelectNodes("rss/channel/item");
 
+            listBox1.Items.Clear();
+
             foreach (XmlNode node in nodes)
             {
                 string title = node["title"].InnerText;
@@ -34,6 +36,8 @@ namespace VizeOdevi
 
                 listBox1.Items.Add(title + "  ---  " + date);
             }
+
+            deprem.Save("deprem.xml");
 
         }
     }
